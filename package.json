@@ -1,0 +1,23 @@
+{
+    "name":"angles",
+    "version":"0.0.1",
+    "description":"4x4 approach, breakover and departure angles and tire sizes",
+    "dependencies":{
+        "express":"*",
+        "express-messages":"*",
+        "underscore":"*",
+        "jade":"*",
+        "mongodb":"*",
+        "mongojs":"*",
+        "request":"*",
+        "moment":"*",
+        "async":"*"
+    },
+    "devDependencies": {
+      "nodeunit": "*"
+    },
+    "scripts":{
+        "test":"nodeunit tests/*.js -t 10000",
+        "start":"node dev.js"
+    }
+}

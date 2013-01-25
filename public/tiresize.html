@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="js/vendor/underscore.js" type="text/javascript"></script>
+    <script src="js/vendor/jquery.js" type="text/javascript"></script>
+    <script src="js/tire.js" type="text/javascript"></script>
+    <script src="js/common.js" type="text/javascript"></script>
+    <script src="bootstrap/js/bootstrap.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/angles.css"/>
+    <title>Tire calculator</title>
+
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top  navbar-inverse">
+    <div class="navbar-inner">
+        <ul class="nav">
+            <li class="active"><a href="tiresize.html">Tire compare</a></li>
+            <li><a href="angles.html">Angles</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="well well-large" style="margin-top: 50px;">
+    <h2>Compare tyre sizes</h2>
+    <div id="tyres"></div>
+    <input type="button" class="btn btn-primary" onclick="extraTyre();" value="Add tyre"/>
+</div>
+<script type="text/javascript">
+
+    var tyres = [newTyre("tyre1"), newTyre("tyre2")];
+
+    function extraTyre() {
+        var tyreName = "tyre" + (tyres.length + 1),
+                tyre = newTyre(tyreName);
+        tyres.push(tyre);
+        _.bind(addTyre, null, $("#tyres"))(tyre);
+    }
+
+    $(function () {
+        _.each(tyres, _.bind(addTyre, null, $("#tyres")));
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <script src="js/vendor/underscore.js" type="text/javascript"></script>
+    <script src="js/vendor/jquery.js" type="text/javascript"></script>
+    <script src="js/tire.js" type="text/javascript"></script>
+    <script src="js/angles.js" type="text/javascript"></script>
+    <script src="js/common.js" type="text/javascript"></script>
+    <script src="bootstrap/js/bootstrap.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/angles.css"/>
+
+    <title>Angles</title>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top navbar-inverse">
+    <div class="navbar-inner" style="background-color: black;">
+        <ul class="nav">
+            <li class="active"><a href="tiresize.html">Tire compare</a></li>
+            <li><a href="angles.html">Angles</a></li>
+        </ul>
+    </div>
+</div>
+<div class="row" style="margin-top: 50px">
+    <div class="span7 well" style="margin-left: 50px;">
+        <h2> Original </h2>
+
+        <h4>Tyre</h4>
+
+        <div id="original_tyre"></div>
+
+        <br/><br/><br/>
+
+        <form class="form-horizontal">
+            <h4>Approach angle</h4>
+
+            <div class="control-group">
+                <label class="control-label" for="aheight">Height from ground</label>
+
+                <div class="controls">
+                    <input id="aheight" type="text" value="300">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="adistance">Distance from wheel</label>
+
+                <div class="controls">
+                    <input id="adistance" type="text" value="300">
+                </div>
+            </div>
+
+            <div id="aresult"></div>
+
+            <h4>Departure angle</h4>
+
+            <div class="control-group">
+                <label class="control-label" for="dheight">Height from ground</label>
+
+                <div class="controls">
+                    <input id="dheight" type="text" value="300"></div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="ddistance">Distance from wheel</label>
+
+                <div class="controls">
+                    <input id="ddistance" type="text" value="500"></div>
+            </div>
+            <div id="dresult"></div>
+
+            <h4>Breakover angle</h4>
+
+            <div class="control-group">
+                <label class="control-label" for="bdistance">Distance between wheels</label>
+
+                <div class="controls">
+                    <input id="bdistance" type="text" value="3000"></div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="bheight">Height in center</label>
+
+                <div class="controls">
+                    <input id="bheight" type="text" value="300"></div>
+            </div>
+
+            <div id="bresult"></div>
+        </form>
+
+    </div>
+
+    <div class="span7 well" style="margin-left: 100px;">
+        <h2> Upgrades </h2>
+
+        <h4>Tyre</h4>
+
+        <div id="new_tyre"></div>
+        <label for="lift">Lift</label>
+        <input id="lift" type="text" value="40">
+
+        <br/>
+
+        <h4>Approach angle</h4>
+
+
+        <span id="auresult"></span>
+        <br/><br/><br/><br/><br/><br/>
+
+        <h4>Departure angle</h4>
+        <span id="duresult"></span>
+        <br/><br/><br/><br/><br/><br/>
+
+        <h4>Breakover angle</h4>
+        <span id="buresult"></span>
+
+    </div>
+</div>
+<script type="text/javascript">
+
+    $(function () {
+        var aheight$ = $("#aheight"),
+                adistance$ = $("#adistance"),
+                aresult$ = $("#aresult"),
+                dheight$ = $("#dheight"),
+                ddistance$ = $("#ddistance"),
+                dresult$ = $("#dresult"),
+                bheight$ = $("#bheight"),
+                bdistance$ = $("#bdistance"),
+                bresult$ = $("#bresult"),
+                auresult$ = $("#auresult"),
+                buresult$ = $("#buresult"),
+                duresult$ = $("#duresult"),
+                lift$ = $("#lift"),
+                oTyreDim, uTyreDim;
+
+        function getLift() {
+            var lift = parseFloat(lift$.val());
+            if (_.isFinite(uTyreDim) && _.isFinite(oTyreDim)) {
+                lift += (uTyreDim - oTyreDim) / 2;
+            }
+            return lift;
+        }
+
+        function calculate(h, d, lift, resultHandler) {
+            var height = parseFloat(h.val()) + (lift || 0),
+                    distance = parseFloat(d.val()),
+                    resultA = angle(height, distance);
+
+            resultHandler(resultA);
+        }
+
+        function calculateBreakover(lift, resultHandler) {
+            var height = parseFloat(bheight$.val()) + (lift || 0),
+                    distance = parseFloat(bdistance$.val()),
+                    resultA = breakover(height, distance);
+
+            return resultHandler(resultA);
+        }
+
+        _.each([aheight$, adistance$], function (inp) {
+            inp.change(function () {
+                calculate(aheight$, adistance$, 0, function (angle) {
+                    aresult$.html(resultHtml(angle));
+                    renderUpgrade();
+                });
+            });
+        });
+        _.each([dheight$, ddistance$], function (inp) {
+            inp.change(function () {
+                calculate(dheight$, ddistance$, 0, function (angle) {
+                    dresult$.html(resultHtml(angle));
+                    renderUpgrade();
+                });
+            });
+        });
+        _.each([bheight$, bdistance$], function (inp) {
+            inp.change(function () {
+                calculateBreakover(0, function (angle) {
+                    bresult$.html(resultHtml(angle));
+                    renderUpgrade();
+                });
+
+            });
+        });
+
+        calculate(aheight$, adistance$, 0, function (angle) {
+            aresult$.html(resultHtml(angle));
+        });
+        calculate(dheight$, ddistance$, 0, function (angle) {
+            dresult$.html(resultHtml(angle));
+        });
+        calculateBreakover(0, function (angle) {
+            bresult$.html(resultHtml(angle));
+        });
+        renderUpgrade();
+
+        var original_tyre = addTyre($("#original_tyre"), {name:"original", tread:255, profile:70, rim:16}, function (diameter) {
+                    oTyreDim = diameter;
+                    renderUpgrade();
+                }),
+                upgrade_tyre = addTyre($("#new_tyre"), {name:"upgrade", tread:265, profile:70, rim:16}, function (diameter) {
+                    uTyreDim = diameter;
+                    renderUpgrade();
+                });
+
+        lift$.change(renderUpgrade);
+
+        function renderUpgrade() {
+            var lift = getLift();
+
+            calculate(aheight$, adistance$, lift, function (angle) {
+                auresult$.html(resultHtml(angle));
+            });
+            calculate(dheight$, ddistance$, lift, function (angle) {
+                duresult$.html(resultHtml(angle));
+            });
+            calculateBreakover(lift, function (angle) {
+                buresult$.html(resultHtml(angle));
+            });
+        }
+    });
+
+    function resultHtml(angle) {
+        return _.template("Result: <span style='font-weight: bold; color: #2e8b57;'> <%= angle %> </span>")({angle:angle.toFixed(2)});
+    }
+</script>
+
+</body>
+</html>
