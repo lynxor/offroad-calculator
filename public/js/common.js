@@ -49,3 +49,7 @@ function addTyre(div$, tyre, change) {
 function newTyre(name) {
     return {name:name, tread:265, profile:75, rim:16};
 }
+
+function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.substring(1).toLowerCase();
+}

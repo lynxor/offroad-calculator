@@ -1,3 +1,11 @@
 select.tyre{
   width: auto;
 }
+
+.vehicle_specs {
+  padding: 6px;
+}
+
+.vehicle_specs dl{
+  background-color: #EEEEEE;
+}

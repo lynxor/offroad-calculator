@@ -1,0 +1,12 @@
+extends ../base
+
+block title
+  title Edit vehicle #{vehicle.brand} #{vehicle.model} - #{vehicle.year}
+
+block content
+  h1 Edit Vehicle #{vehicle.brand} #{vehicle.model} - #{vehicle.year}
+
+  form.form-horizontal(action='/vehicles/save/#{vehicle._id}', method='post')
+    include vehicle_fields
+    div.control-group
+      div.controls: input(type='submit', value='Save')

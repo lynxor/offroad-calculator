@@ -1,0 +1,100 @@
+#brand.control-group
+  label.control-label Brand
+  div.controls: input#brand(type='text', name='vehicle[brand]', value='#{vehicle.brand}', class='validate[required')
+div.control-group
+  label.control-label Model
+  div.controls: input#model(type='text', name='vehicle[model]', class='validate[required]', value='#{vehicle.model}')
+div.control-group
+  label.control-label Year
+  div.controls: input(name='vehicle[year]', value='#{vehicle.year}')
+div.control-group
+  label.control-label Gears
+  div.controls: input(name='vehicle[gears]', value='#{vehicle.gears}')
+
+h3 engine
+div.control-group
+  label.control-label Description
+  div.controls: input(type='text', name='vehicle[engine[description]', value='#{vehicle.engine.description}')
+div.control-group
+  label.control-label size
+  div.controls: input(type='text', name='vehicle[engine[size]', value='#{vehicle.engine.size}')
+div.control-group
+  label.control-label compression ratio
+  div.controls: input(type='text', name='vehicle[engine[compression_ratio]', value='#{vehicle.engine.compression_ratio}')
+div.control-group
+  label.control-label max power
+  div.controls: input(type='text', name='vehicle[engine[max_power]', value='#{vehicle.engine.max_power}')
+div.control-group
+  label.control-label Max torque
+  div.controls: input(type='text', name='vehicle[engine[max_torque]', value='#{vehicle.engine.max_torque}')
+div.control-group
+  label.control-label Valves
+  div.controls: input(type='text', name='vehicle[engine[valves]', value='#{vehicle.engine.valves}')
+div.control-group
+  label.control-label Fuel management
+  div.controls: input(type='text', name='vehicle[engine[fuel_management]', value='#{vehicle.engine.fuel_management}')
+
+h3 Dimensions
+div.control-group
+  label.control-label Clearance
+  div.controls: input(type='text', name='vehicle[dimensions[clearance]', value='#{vehicle.dimensions.clearance}')
+div.control-group
+  label.control-label Approach
+  div.controls: input(type='text', name='vehicle[dimensions[approach]', value='#{vehicle.dimensions.approach}')
+div.control-group
+  label.control-label Departure
+  div.controls: input(type='text', name='vehicle[dimensions[departure]', value='#{vehicle.dimensions.departure}')
+div.control-group
+  label.control-label Breakover
+  div.controls: input(type='text', name='vehicle[dimensions[breakover]', value='#{vehicle.dimensions.breakover}')
+div.control-group
+  label.control-label Rollover
+  div.controls: input(type='text', name='vehicle[dimensions[rollover]', value='#{vehicle.dimensions.rollover}')
+div.control-group
+  label.control-label Wading
+  div.controls: input(type='text', name='vehicle[dimensions[wading]', value='#{vehicle.dimensions.wading}')
+div.control-group
+  label.control-label Turning circle
+  div.controls: input(type='text', name='vehicle[dimensions[turning_circle]', value='#{vehicle.dimensions.turning_circle}')
+div.control-group
+  label.control-label Height
+  div.controls: input(type='text', name='vehicle[dimensions[height]', value='#{vehicle.dimensions.height}')
+div.control-group
+  label.control-label Length
+  div.controls: input(type='text', name='vehicle[dimensions[length]', value='#{vehicle.dimensions.length}')
+div.control-group
+  label.control-label Width
+  div.controls: input(type='text', name='vehicle[dimensions[width]', value='#{vehicle.dimensions.width}')
+div.control-group
+  label.control-label Wheelbase
+  div.controls: input(type='text', name='vehicle[dimensions[wheelbase]', value='#{vehicle.dimensions.wheelbase}')
+
+h3 Mass
+div.control-group
+  label.control-label GVM
+  div.controls: input(type='text', name='vehicle[mass[gvm]', value='#{vehicle.mass.gvm}')
+div.control-group
+  label.control-label Curb
+  div.controls: input(type='text', name='vehicle[mass[curb]', value='#{vehicle.mass.curb}')
+
+h3 Fuel
+div.control-group
+  label.control-label Type
+  div.controls: input(type='text', name='vehicle[fuel[type]', value='#{vehicle.fuel.type}')
+div.control-group
+  label.control-label Capacity
+  div.controls: input(type='text', name='vehicle[fuel[capacity]', value='#{vehicle.fuel.capacity}')
+div.control-group
+  label.control-label Economy
+  div.controls: input(type='text', name='vehicle[fuel[economy]', value='#{vehicle.fuel.economy}')
+
+h3 Wheels
+div.control-group
+  label.control-label Rim
+  div.controls: input(type='text', name='vehicle[wheel[rim]', value='#{vehicle.wheels.rim}')
+div.control-group
+  label.control-label Tread
+  div.controls: input(type='text', name='vehicle[wheel[tread]', value='#{vehicle.wheels.tread}')
+div.control-group
+  label.control-label profile
+  div.controls: input(type='text', name='vehicle[wheel[profile]', value='#{vehicle.wheels.profile}')

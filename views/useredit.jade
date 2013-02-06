@@ -1,0 +1,44 @@
+extends base
+
+block title
+  title User - #{userToEdit.email}
+
+block content
+  h1 Users
+  ul(class='nav nav-tabs nav-stacked')
+    each u in users
+      if (userToEdit.email == u.email)
+        li(class="user active")
+          a(href='/admin/edit/#{u.email}') #{u.email}
+      else
+        li.user
+          a(href='/admin/edit/#{u.email}') #{u.email}
+  
+  h1 User - #{userToEdit.email}
+  form#useredit(method='post', action='/admin/edit/#{userToEdit.email}')
+
+    h2 Details
+    div
+      label first name
+      input#firstname(name='firstname', type='text', value='#{userToEdit.firstname}', class='validate[required, minSize[2]]')
+    div
+      label last name
+      input#lastname(name='lastname', type='text', value='#{userToEdit.lastname}', class='validate[required, minSize[2]]')
+
+      label Role
+
+      select(id="role",name="role",class="validate[required]")
+        option
+        each role in roles
+          if (userToEdit.role.name == role.name)
+            option(name="#{role.name}", value="#{role.name}", selected="selected") #{role.name}
+          else
+            option(name="#{role.name}", value="#{role.name}") #{role.name}
+    div
+     input(type='submit', value='save user')
+
+
+  script(type='text/javascript')
+      $(function(){
+            $("form#useredit").validationEngine();
+        });

@@ -1,0 +1,20 @@
+extends ../base
+
+block title
+  title Vehicles
+
+block content
+  h1 Vehicles
+
+  select#vehicle_select
+    each v in vehicles
+      option(value='#{JSON.stringify(v)}') #{v.brand} #{v.model} - #{v.year}
+
+  button#add_vehicle.btn.btn-primary(type='button', style='margin-left: 5px;')
+    i.icon-plus-sign.icon-white
+    span Add
+
+  table.table-bordered
+    tr#first_row
+
+  script(type='text/javascript', src='/public/js/vehicles_public.js')

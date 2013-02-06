@@ -1,0 +1,14 @@
+extends base
+
+block title
+    title Debtsimple - Home
+    
+block content
+  if !user
+    .hero-unit
+      h1 Debtsimple
+      p Debtsimple aims to speed up the debt collection process by keeping track of debtors, their debt and the communication to and from the collectors and the debtor.
+      ul
+          .btn 
+            a(href="/login") Please log in to continue
+

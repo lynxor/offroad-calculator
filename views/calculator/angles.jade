@@ -1,0 +1,77 @@
+extends ../base
+
+block title
+  title Angles
+
+block scripts
+  script(src='/public/js/tire.js', type='text/javascript')
+  script(src='/public/js/angles.js', type='text/javascript')
+  script(type='text/javascript', src="/public/js/angles_public.js")
+
+block content
+  h1 Angles
+  .row(style='margin-top: 50px;')
+    .span5.well(style='margin-left: 50px;')
+      h2  Original
+      h4 Tyre
+      #original_tyre
+      br
+      br
+      br
+      form.form-horizontal
+        h4 Approach angle
+        .control-group
+          label.control-label(for='aheight') Height from ground
+          .controls
+            input#aheight(type='text', value='300')
+        .control-group
+          label.control-label(for='adistance') Distance from wheel
+          .controls
+            input#adistance(type='text', value='300')
+        #aresult
+        h4 Departure angle
+        .control-group
+          label.control-label(for='dheight') Height from ground
+          .controls
+            input#dheight(type='text', value='300')
+        .control-group
+          label.control-label(for='ddistance') Distance from wheel
+          .controls
+            input#ddistance(type='text', value='500')
+        #dresult
+        h4 Breakover angle
+        .control-group
+          label.control-label(for='bdistance') Distance between wheels
+          .controls
+            input#bdistance(type='text', value='3000')
+        .control-group
+          label.control-label(for='bheight') Height in center
+          .controls
+            input#bheight(type='text', value='300')
+        #bresult
+    .span5.well(style='margin-left: 100px;')
+      h2  Upgrades
+      h4 Tyre
+      #new_tyre
+      label(for='lift') Lift
+      input#lift(type='text', value='40')
+      br
+      h4 Approach angle
+      span#auresult
+      br
+      br
+      br
+      br
+      br
+      br
+      h4 Departure angle
+      span#duresult
+      br
+      br
+      br
+      br
+      br
+      br
+      h4 Breakover angle
+      span#buresult
+

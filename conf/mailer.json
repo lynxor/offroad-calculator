@@ -1,0 +1,8 @@
+{ "user":"someemailaddress@gmail.com",
+    "password":"password",
+    "host":"smtp.gmail.com",
+    "ssl":true,
+    "port":465,
+    "tls":true
+}
+

@@ -1,0 +1,43 @@
+!!!
+html
+  head
+    block title
+    include include/header
+    block scripts
+
+  body
+    .navbar.navbar-inverse
+      .navbar-inner
+        ul.nav
+          li.active
+            a(href='/tiresize') Tire compare
+          li
+            a(href='/angles') Angles
+          li
+            a(href='/vehicles') Vehicles
+        if admin
+          .container
+            ul.nav
+              if admin || dsclient
+                 li.dropdown
+                   a.dropdown-toggle(data-toggle="dropdown",href="#") Administration
+                     b.caret
+                   ul.dropdown-menu
+                     li: a(href="/admin") Users
+
+          .user
+            if user
+              span.username
+                a(href="/profile/#{user.email}") #{user.email}
+              .btn
+                a(href="/logout") Logout
+            else
+              h2
+                div(class="btn btn-primary")
+                  a(href="/login") Please login!
+
+    div(class="container")
+      block content
+
+  script
+    $(".dropdown-toggle").dropdown();

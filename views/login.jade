@@ -1,0 +1,22 @@
+extends base
+
+block title
+  title Login
+
+block content
+  != messages()
+  form(method='post', action='/login')
+    div
+      label E-mail:
+      input(name='email', type='text', id='name')
+    div
+      label Password:
+      input(name='password', type='password')
+    div
+      input(type='submit', value='Log In')
+      input(type='hidden', value='#{attempts}')
+     
+    div: a(href="/user/reset") Reset password
+
+    script
+      $(document).ready(function () { $("#name").focus();});

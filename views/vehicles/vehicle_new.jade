@@ -1,0 +1,12 @@
+extends ../base
+
+block title
+  title New vehicle
+
+block content
+  h1 New Vehicle
+
+  form.form-horizontal(action='/vehicles/new', method='post')
+    include vehicle_fields
+    div.control-group
+      div.controls: input(type='submit', value='Save')

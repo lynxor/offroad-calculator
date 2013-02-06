@@ -1,0 +1,11 @@
+extends ../base
+
+block title
+  title Error
+
+block content
+  .hero-unit
+    p An Error occurred: #{error}
+      ul
+        .btn 
+          a(href="/") Return home

@@ -1,0 +1,13 @@
+extends base
+
+block title
+  title Profile - #{userToEdit.firstname} #{userToEdit.lastname}
+
+block content
+  != messages()
+  h1 Profile - #{userToEdit.firstname} #{userToEdit.lastname}
+  ul
+    li
+      a(href='/user/changepassword/#{userToEdit.email}') Change Password
+
+  include include/userform.jade

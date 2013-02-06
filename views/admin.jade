@@ -1,0 +1,23 @@
+extends base
+
+block title
+  title Admin
+
+block content
+  h1 Users
+  ul(class='nav nav-tabs nav-stacked')
+    each userToEdit in users
+      li.user
+        a(href='/admin/edit/#{userToEdit.email}') #{userToEdit.email}
+
+  h1 Add
+  form#newuser(method='post', action='/admin/add')
+    div
+      label email
+      input#email(name='email', type='text', class='validate[required,custom[email]]')
+    div
+      label password
+      input#password(name='password', type='password', class='validate[required,minSize[7]]')
+    div
+     input(type='submit', value='add user')
+

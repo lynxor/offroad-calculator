@@ -1,0 +1,17 @@
+extends ../base
+
+block title
+  title Angles
+
+block scripts
+  script(src='/public/js/tire.js', type='text/javascript')
+  script(type='text/javascript', src='/public/js/tiresize_public.js')
+
+block content
+  h1 Angles
+  .well.well-large(style='margin-top: 50px;')
+    h2 Compare tyre sizes
+    #tyres
+    input.btn.btn-primary(type='button', onclick='extraTyre();', value='Add tyre')
+
+

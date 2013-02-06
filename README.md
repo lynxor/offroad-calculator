@@ -1,4 +1,23 @@
-offroad-calculator
-==================
+## Offroad calculator
 
-Calculate approach, breakover and departure angles and see how they change with lift and larger tyres.   Compare tyre sizes 
+Installing
+----------
+
+Just run
+
+    npm install
+
+It will download all dependencies for the project.
+
+Running
+
+    npm test
+
+runs the tests
+
+
+Running
+
+    npm start
+
+will start the server on port 8080

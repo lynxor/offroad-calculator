@@ -1,5 +1,5 @@
 {
-    "name":"angles",
+    "name":"offroad-calculator",
     "version":"0.0.1",
     "description":"4x4 approach, breakover and departure angles and tire sizes",
     "dependencies":{
@@ -11,10 +11,10 @@
         "mongojs":"*",
         "request":"*",
         "moment":"*",
-        "async":"*"
+        "async":"*",
+        "winston": "*"
     },
     "devDependencies": {
-      "nodeunit": "*"
     },
     "scripts":{
         "test":"nodeunit tests/*.js -t 10000",
