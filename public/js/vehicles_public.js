@@ -26,6 +26,7 @@ function vehicleColumn(vehicle){
         if(key === "_id"){
             return "";
         }
+        value = (_.isUndefined(value) || value === "")? "-" : value;
         return "<dt>"+ capitalize(key.replace(/_/g, " ")) + "</dt>" +
                "<dd>"+ value +"</dd>";
     }
