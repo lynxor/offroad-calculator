@@ -1,23 +1,27 @@
 {
-    "name":"offroad-calculator",
-    "version":"0.0.1",
-    "description":"4x4 approach, breakover and departure angles and tire sizes",
-    "dependencies":{
-        "express":"*",
-        "express-messages":"*",
-        "underscore":"*",
-        "jade":"*",
-        "mongodb":"*",
-        "mongojs":"*",
-        "request":"*",
-        "moment":"*",
-        "async":"*",
-        "winston": "*"
-    },
-    "devDependencies": {
-    },
-    "scripts":{
-        "test":"nodeunit tests/*.js -t 10000",
-        "start":"node dev.js"
-    }
+  "name":"offroad-calculator",
+  "version":"0.0.1",
+  "description":"4x4 approach, breakover and departure angles and tire sizes",
+  "dependencies":{
+    "express":"*",
+    "express-messages":"*",
+    "underscore":"*",
+    "jade":"*",
+    "mongodb":"*",
+    "mongojs":"*",
+    "request":"*",
+    "moment":"*",
+    "async":"*",
+    "winston":"*",
+    "passport":"*",
+    "passport-local":"*",
+    "connect-flash":"*",
+    "emailjs":"*"
+  },
+  "devDependencies":{
+  },
+  "scripts":{
+    "test":"nodeunit tests/*.js -t 10000",
+    "start":"node dev.js"
+  }
 }
