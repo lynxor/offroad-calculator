@@ -5,6 +5,13 @@ $(function(){
             column = vehicleColumn(value);
         $("#first_row").append(column);
     });
+
+    $("#edit_vehicle").click(function(){
+        var value = JSON.parse($("#vehicle_select").val());
+
+        window.location.href='vehicles/edit/' + value._id;
+    });
+
 });
 
 function vehicleColumn(vehicle){

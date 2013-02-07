@@ -22,6 +22,6 @@
   },
   "scripts":{
     "test":"nodeunit tests/*.js -t 10000",
-    "start":"node dev.js"
+    "start":"node app.js"
   }
 }

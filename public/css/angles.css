@@ -9,3 +9,18 @@ select.tyre{
 .vehicle_specs dl{
   background-color: #EEEEEE;
 }
+
+.user {
+  color: #000;
+  float: right;
+}
+
+span.username {
+  color: lightblue;
+  margin-right:20px;
+}
+
+.navbar-inner .container {
+  margin-left: 100px;
+  float: left;
+}

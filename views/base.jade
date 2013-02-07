@@ -10,31 +10,30 @@ html
       .navbar-inner
         ul.nav
           li.active
+            a(href='/') Home
+          li
             a(href='/tiresize') Tire compare
           li
             a(href='/angles') Angles
           li
             a(href='/vehicles') Vehicles
-        if admin
-          .container
-            ul.nav
-              if admin || dsclient
-                 li.dropdown
-                   a.dropdown-toggle(data-toggle="dropdown",href="#") Administration
-                     b.caret
-                   ul.dropdown-menu
-                     li: a(href="/admin") Users
-
-          .user
-            if user
-              span.username
-                a(href="/profile/#{user.email}") #{user.email}
-              .btn
-                a(href="/logout") Logout
-            else
-              h2
-                div(class="btn btn-primary")
-                  a(href="/login") Please login!
+          if admin
+            li
+              a(href='/vehicles/new') Add Vehicles
+            li.dropdown
+              a.dropdown-toggle(data-toggle="dropdown",href="#") Administration
+                b.caret
+              ul.dropdown-menu
+                li: a(href="/admin") Users
+        .user
+          if user
+            span.username
+              a(href="/profile/#{user.email}") #{user.email}
+            .btn
+              a(href="/logout") Logout
+          else
+            div
+              a.btn.btn-primary(href="/login") Login
 
     div(class="container")
       block content

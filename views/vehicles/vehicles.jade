@@ -4,7 +4,7 @@ block title
   title Vehicles
 
 block content
-  h1 Vehicles
+  h1 Compare vehicles
 
   select#vehicle_select
     each v in vehicles
@@ -12,7 +12,13 @@ block content
 
   button#add_vehicle.btn.btn-primary(type='button', style='margin-left: 5px;')
     i.icon-plus-sign.icon-white
-    span Add
+    span Add to comparison
+
+  if admin
+    button#edit_vehicle.btn.btn-primary(type='button', style='margin-left: 5px;')
+      i.icon-edit.icon-white
+      span Edit
+
 
   table.table-bordered
     tr#first_row

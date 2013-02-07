@@ -3,7 +3,8 @@ var _ = require("underscore"),
     async = require("async"),
     moment = require("moment"),
     jade = require("jade"),
-    fs = require("fs");
+    fs = require("fs"),
+     ObjectID = require('mongodb').ObjectID;
 
 exports.on = function (db, providers) {
     var userProvider = providers.userProvider,
