@@ -1,0 +1,35 @@
+extends ../base
+
+block title
+  title Tire Sizes
+
+block scripts
+  script(type='text/javascript', src='/public/js/fuel_public.js')
+
+block content
+  h1 Tire Sizes
+  .well.well-large(style='margin-top: 50px;')
+    h2 Maximum reach
+    select#vehicles
+      option(value="") Please select a vehicle(optional)
+      each v in vehicles
+        option(value='#{JSON.stringify(v)}') #{v.brand} #{v.model} - #{v.year}
+
+    div.form-horizontal
+      select#petrol
+        option(value="") Please select a petrol price
+        each p in petrol
+          option(value='#{p.value}')= p.name
+      input#petrol_use.btn(type='button', value='Use')
+
+      select#diesel
+        option(value="") Please select a diesel price
+        each p in diesel
+          option(value='#{p.value}')= p.name
+      input#diesel_use.btn(type='button', value='Use')
+
+
+
+
+
+

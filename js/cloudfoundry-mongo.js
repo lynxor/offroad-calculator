@@ -12,7 +12,7 @@ if(process.env.VCAP_SERVICES){
     mongo = env['mongodb-2.0'][0]['credentials'];
 }
 
-var generate_mongo_url = function(obj){
+var generate_mongo_url = function(obj) {
     obj.hostname = (obj.hostname || 'localhost');
     obj.port = (obj.port || 27017);
     obj.db = (obj.db || 'offroad-calculator');
