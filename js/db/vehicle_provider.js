@@ -16,7 +16,7 @@ exports.VehicleProvider = function (db) {
         },
         retrieveFuel: function(callback){
           var min_date = moment().subtract('days', 14).toDate();
-          db.fuel.find({date : {$gt : min_date}}).sort({date: 1}).limit(1, function(err, docs){
+          db.fuel.find({date : {$gt : min_date}}).sort({date: 1}, function(err, docs){
              if(!docs.length){
                  scraper.scrape(function(err, petrol, diesel, date){
                      var fuel = {petrol: petrol, diesel: diesel, date: date};
