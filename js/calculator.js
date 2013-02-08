@@ -23,7 +23,7 @@ exports.on = function (db, providers) {
             db.vehicle.find({}, function (err, vehicles) {
                 scrape(function (err, petrol, diesel, date) {
                     res.render('calculator/fuel.jade',
-                        {petrol:petrol || [], diesel:diesel || [], date:date || new Date(),
+                        {petrol:petrol || [], diesel:diesel || [], date:date.format('D MMM YYYY') || "(No Data)",
                             vehicles:vehicles});
                 });
             });

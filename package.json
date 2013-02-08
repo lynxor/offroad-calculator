@@ -19,6 +19,7 @@
     "emailjs":"*"
   },
   "devDependencies":{
+    "jsdom": "*"
   },
   "scripts":{
     "test":"nodeunit tests/*.js -t 10000",

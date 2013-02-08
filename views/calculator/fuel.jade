@@ -1,35 +1,61 @@
 extends ../base
 
 block title
-  title Tire Sizes
+  title Fuel Calculations
 
 block scripts
   script(type='text/javascript', src='/public/js/fuel_public.js')
 
 block content
-  h1 Tire Sizes
   .well.well-large(style='margin-top: 50px;')
-    h2 Maximum reach
-    select#vehicles
-      option(value="") Please select a vehicle(optional)
-      each v in vehicles
-        option(value='#{JSON.stringify(v)}') #{v.brand} #{v.model} - #{v.year}
-
+    h2 Fuel calculations
+    h3 Max Reach
     div.form-horizontal
+      select#vehicles
+        option(value="") Select a vehicle(optional)
+        each v in vehicles
+          option(value='#{JSON.stringify(v)}') #{v.brand} #{v.model} - #{v.year}
+
+      label(for='economy') Economy
+      .input-append
+        input#economy.span2(value="11.1", type='text')
+        span.add-on l/100km
+
+      label(for="capacity") Capacity
+      .input-append
+        input#capacity.span2(value='90', type='text')
+        span.add-on l
+
+      h4#max_reach
+
+      label(for='desired_reach') Desired reach
+      .input-append
+        input#desired_reach(type='text', value='2000')
+        span.add-on km
+      h4#additional_capacity
+
+    h3 Fuel expense for trip
+    div.form-horizontal
+
+      span(style='color: green') These are distribution fuel prices as of #{date}
+      br
       select#petrol
-        option(value="") Please select a petrol price
+        option(value="") Petrol price
         each p in petrol
-          option(value='#{p.value}')= p.name
-      input#petrol_use.btn(type='button', value='Use')
+          option(value='#{p.value}') #{p.description} - #{p.value}
 
       select#diesel
-        option(value="") Please select a diesel price
+        option(value="") Diesel price
         each p in diesel
-          option(value='#{p.value}')= p.name
-      input#diesel_use.btn(type='button', value='Use')
+          option(value='#{p.value}') #{p.description} - #{p.value}
 
+      label(for="fuel_price") Fuel Price
+      .input-prepend
+        span.add-on R
+        input#fuel_price(value='12.00', type='text')
 
-
-
-
-
+      label(for='trip_distance') Distance
+      .input-append
+        input#trip_distance.span2(value='5000', type='text')
+        span.add-on km
+      h4#expense
