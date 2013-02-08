@@ -7,7 +7,7 @@ var mongojs = require('mongojs'),
 
 module.exports = function (options, callback) {
 
-    var database = mongojs.connect(require("./cloudfoundry-mongo.js").mongourl, ["user", "vehicle"]);
+    var database = mongojs.connect(require("./cloudfoundry-mongo.js").mongourl, ["user", "vehicle", "fuel"]);
 
     if (database) {
         var providers = {

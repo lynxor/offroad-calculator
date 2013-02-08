@@ -21,10 +21,10 @@ exports.on = function (db, providers) {
         },
         fuel = function (req, res) {
             db.vehicle.find({}, function (err, vehicles) {
-                scrape(function (err, petrol, diesel, date) {
-                    res.render('calculator/fuel.jade',
-                        {petrol:petrol || [], diesel:diesel || [], date:date.format('D MMM YYYY') || "(No Data)",
-                            vehicles:vehicles});
+                vehicleProvider.retrieveFuel(function (err, result) {
+                    result.date = moment(result.date).format('D MMM YYYY');
+                    result.vehicles = vehicles;
+                    res.render('calculator/fuel.jade',result);
                 });
             });
         };

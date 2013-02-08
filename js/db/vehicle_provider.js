@@ -1,6 +1,8 @@
 var ObjectID = require('mongodb').ObjectID,
     _ = require("underscore"),
-    async = require("async");
+    async = require("async"),
+    moment = require("moment"),
+    scraper = require("./../fuel-scraper.js");
 
 
 exports.VehicleProvider = function (db) {
@@ -11,6 +13,21 @@ exports.VehicleProvider = function (db) {
         },
         fill: function(vehicle){
             return _.defaults(vehicle, this.emptyVehicle());
+        },
+        retrieveFuel: function(callback){
+          var min_date = moment().subtract('days', 14).toDate();
+          db.fuel.find({date : {$gt : min_date}}).sort({date: 1}).limit(1, function(err, docs){
+             if(!docs.length){
+                 scraper.scrape(function(err, petrol, diesel, date){
+                     var fuel = {petrol: petrol, diesel: diesel, date: date};
+                    db.fuel.insert(fuel, function(){});
+                    callback(null,fuel);
+                 });
+             }
+             else {
+                 callback(null, docs[0]);
+             }
+          });
         },
         emptyVehicle: function(){
             return {

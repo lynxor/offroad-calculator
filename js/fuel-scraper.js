@@ -31,7 +31,7 @@ function scrape(callback) {
                         {description:"Coast 0.05%", value:$(dieselTable).find("tr:nth-child(4) > tr:first-child > td:nth-child(4)").text() },
                         {description:"Coast 0.01%", value:$(dieselTable).find("tr:nth-child(4) > tr:first-child > td:nth-child(5)").text() }
                     ];
-                callback(null, petrol, diesel, date);
+                callback(null, petrol, diesel, date.toDate());
             }
             catch (e) {
                 callback(e);
