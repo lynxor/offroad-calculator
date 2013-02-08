@@ -31,6 +31,7 @@ $(function () {
     });
 
     fuel_price$.change(calculate_fuel_expense);
+    trip_distance$.change(calculate_fuel_expense);
 
     function calculate_fuel_expense() {
         var e = parseFloat(economy$.val()),
@@ -39,7 +40,7 @@ $(function () {
             liters = (dist / 100) * e,
             price = liters * p;
 
-        expense$.html("R " + price + " (" + liters + " liters of fuel) @ " + e + "l/100km");
+        expense$.html("R " + price.toFixed(2) + " (" + liters + " liters of fuel) @ " + e + "l/100km");
     }
 
     function calculate_reach() {
