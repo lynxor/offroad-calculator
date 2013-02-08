@@ -18,6 +18,9 @@ exports.VehicleProvider = function (db) {
                 model: "",
                 year: "2012",
                 gears: "",
+                diffs: "",
+                suspension: "",
+                service_interval: "",
                 engine : {
                     description: "",
                     size: "",
