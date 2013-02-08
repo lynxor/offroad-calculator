@@ -7,12 +7,22 @@ var _ = require("underscore"),
 
 exports.on = function (db, providers) {
     var userProvider = providers.userProvider,
-        vehicleProvider = providers.vehicleProvider;
+        vehicleProvider = providers.vehicleProvider,
+        tiresize = function(req, res){
+            db.vehicle.find({}, function(err, vehicles){
+                res.render('calculator/tiresize.jade', {vehicles: vehicles});
+            });
+        },
+        angles = function(req, res){
+            db.vehicle.find({}, function(err, vehicles){
+                res.render('calculator/angles.jade', {vehicles: vehicles});
+            });
+        };
     return function (router) {
         router.get("/", function(req, res){res.render('home.jade', {});});
 
-        router.get("/tiresize",  function(req, res){res.render('calculator/tiresize.jade', {})});
-        router.get("/angles", function(req, res){res.render('calculator/angles.jade', {})});
+        router.get("/tiresize",  tiresize);
+        router.get("/angles", angles);
 
     };
 };

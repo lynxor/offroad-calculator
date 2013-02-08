@@ -1,17 +1,21 @@
 extends ../base
 
 block title
-  title Angles
+  title Tire Sizes
 
 block scripts
   script(src='/public/js/tire.js', type='text/javascript')
   script(type='text/javascript', src='/public/js/tiresize_public.js')
 
 block content
-  h1 Angles
+  h1 Tire Sizes
   .well.well-large(style='margin-top: 50px;')
     h2 Compare tyre sizes
     #tyres
+    select#vehicles
+      option(value="") Please select a vehicle(optional)
+      each v in vehicles
+        option(value='#{JSON.stringify(v)}') #{v.brand} #{v.model} - #{v.year}
     input.btn.btn-primary(type='button', onclick='extraTyre();', value='Add tyre')
 
 
