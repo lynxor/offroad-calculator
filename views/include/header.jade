@@ -15,4 +15,16 @@ script(src='/public/vendor/moment-1.4.0.min.js')
 script(src='/public/vendor/underscore-1.4.4.js')
 script(src='/public/js/common.js')
 
+//analytics
+script(type="text/javascript")
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38367762-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
 meta(name="viewport",content="width=device-width, initial-scale=1.0")
