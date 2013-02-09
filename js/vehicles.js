@@ -35,11 +35,11 @@ exports.on = function (db, providers) {
         };
 
     return function (router) {
-        router.get("/vehicles/edit/:vehicleId",  viewEditVehicle);
+        router.get("/vehicles/edit/:vehicleId", a.hasRole("admin"), viewEditVehicle);
         router.get("/vehicles", allVehicles);
-        router.get("/vehicles/new", viewNewVehicle);
-        router.post("/vehicles/new", addVehicle);
-        router.post("/vehicles/save/:vehicleId",  saveVehicle);
+        router.get("/vehicles/new", a.hasRole("admin"), viewNewVehicle);
+        router.post("/vehicles/new", a.hasRole("admin"), addVehicle);
+        router.post("/vehicles/save/:vehicleId", a.hasRole("admin"), saveVehicle);
 
     };
 };

@@ -15,6 +15,7 @@ block content
         option(value="") Select a vehicle(optional)
         each v in vehicles
           option(value='#{JSON.stringify(v)}') #{v.brand} #{v.model} - #{v.year}
+      span.info Select a vehicle to use its fuel economy and capacity figures
 
       label(for='economy') Economy
       .input-append

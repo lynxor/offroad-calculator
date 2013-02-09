@@ -4,6 +4,47 @@ block title
   title Welcome
 
 block content
-  .well
-    h1 Welcome
-    p Compare vehicles, calculate tire changes and see what difference an upgrade will make to your vehicle
+  .hero-unit
+    h1 Welcome to the 4x4 and offroading calculator!
+    br
+    p Compare vehicles, calculate tire changes, calculate fuel requirements and costs and see what difference an upgrade will make to your vehicle
+    br
+    .links
+      h4 This site features the following calculators:
+      ul.inline
+        li
+          .btn-group
+            a.btn.btn-primary(href='/fuel') Fuel Calculator
+            a#fuel.btn.btn-primary(href='#', placement='right', title="With this calculator, you can calculate how far you can go with your current fuel tank, how much extra fuel you'll need to carry to reach your destination and how much your planned trip's fuel expense is going to be")
+              i.icon-info-sign.icon-white
+        li
+          .btn-group
+            a.btn.btn-primary(href='/tiresize') Tire Calculator
+            a#tire.btn.btn-primary(href='#', placement='right', title="With this calculator, you can compare different tire diameters.")
+              i.icon-info-sign.icon-white
+        li
+          .btn-group
+            a.btn.btn-primary(href='/angles') Approach, departure angles calculator
+            a#angles.btn.btn-primary(href='#', placement='right', title="With this calculator, you can calculate how suspension lifts and bigger tyres will affect your approach, departure and breakover angles")
+              i.icon-info-sign.icon-white
+
+      br
+      p You can also compare vehicles in the
+        a(href='vehicles')  vehicles
+        span  section
+
+
+    .social
+      //.g-plusone('data-annotation'="inline", 'data-size'='medium', 'data-width'='300')
+
+
+  script(type="text/javascript")
+    (function() {
+      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+      po.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    })();
+
+    $("#fuel").popover();
+    $("#tire").popover();
+    $("#angles").popover();
