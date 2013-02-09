@@ -25,8 +25,11 @@ $(function () {
 
     _.each([diesel$, petrol$], function (inp$) {
         inp$.change(function () {
-            fuel_price$.val((parseFloat(inp$.val()) / 100).toFixed(2));
-            calculate_everything();
+            var value = (parseFloat(inp$.val()));
+            if (_.isFinite(value)) {
+                fuel_price$.val((parseFloat(inp$.val()) / 100).toFixed(2));
+                calculate_everything();
+            }
         });
     });
 
