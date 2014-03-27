@@ -1,5 +1,4 @@
 var tyres = [newTyre("tyre1"), newTyre("tyre2")];
-
 function extraTyre() {
 
     var sV = $("#vehicles").val(),
@@ -16,4 +15,3 @@ function extraTyre() {
 $(function () {
     _.each(tyres, _.bind(addTyre, null, $("#tyres")));
 });
-

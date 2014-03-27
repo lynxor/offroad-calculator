@@ -14,7 +14,7 @@ function addTyre(div$, tyre, change) {
         select("tread_" + name) +
             select("profile_" + name) +
             select("rim_" + name) +
-            "<span id='result_" + name + "' ></span><canvas id='tyre_canvas' height='400' width='400' ></canvas>"
+            "<span id='result_" + name + "' ></span><br/>"
     );
     var tread = $("#tread_" + name),
         profile = $("#profile_" + name),
@@ -26,18 +26,7 @@ function addTyre(div$, tyre, change) {
     rim.html(options(rimOptions, tyre.rim));
 
     _.each([tread, profile, rim], function (select) {
-        select.change(function(){
-            var diameter = calc(),
-                canvas = div$.find("#tyre_canvas")[0],
-                context = canvas.getContext("2d");
-
-            function  strokeCircle(centerX, centerY, radius){
-                context.beginPath();
-                context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-                context.stroke();
-            }
-            strokeCircle(200, 200, (diameter/20) );
-        });
+        select.change(calc);
 
     });
 
