@@ -16,7 +16,8 @@
     "passport":"*",
     "passport-local":"*",
     "connect-flash":"*",
-    "emailjs":"*"
+    "emailjs":"*",
+    "jsdom" : "*"
   },
   "devDependencies":{
     "jsdom": "*"
